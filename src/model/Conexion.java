@@ -27,7 +27,7 @@ public class Conexion {
     ) throws ClassNotFoundException, SQLException{
         String protocolo = "jdbc:mysql://";
         String lineaUser = "user="+user;
-        String lineaPass = "password="+pass;
+        String lineaPass = "password="+pass+"&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
        
         String url = protocolo +
                 server + "/" +

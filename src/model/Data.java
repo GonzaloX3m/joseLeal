@@ -14,7 +14,7 @@ public class Data {
     private List<Venta> listaVentas;
 
     public Data() throws ClassNotFoundException, SQLException {
-        con = new Conexion("localhost", "Prueba_2", "root", "");
+        con = new Conexion("localhost", "Prueba_2", "root", "123456");
     }
 
     public void registrarUsuarioAdmin(Usuario nuevo) throws SQLException {

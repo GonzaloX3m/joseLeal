@@ -23,8 +23,20 @@ public class Inicio_sesion extends javax.swing.JFrame {
             initComponents();
             init();
 
-        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException ex) 
+        {
             Logger.getLogger(Inicio_sesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch(SQLException e)
+        {
+             Logger.getLogger(Inicio_sesion.class.getName()).log(Level.SEVERE, null, e);
+             
+            String mensaje = "Base de datos no disponible por favor intente mas tarde";
+            String titulo = "Advertencia!";
+            int tipoMensaje = JOptionPane.ERROR_MESSAGE;
+            JOptionPane.showMessageDialog(this, mensaje, titulo, tipoMensaje);
+        
         }
 
     }
@@ -134,6 +146,8 @@ public class Inicio_sesion extends javax.swing.JFrame {
             if (!txtRun.getText().isEmpty()) {
                 runUsuario = txtRun.getText().trim();
 
+                 this.d=new Data();
+          
                 if (d.validarUsuario(runUsuario) == 1) {
                     usuarioSesion = d.getUsuarioSesion(runUsuario);
                     System.out.println(usuarioSesion.toString());
@@ -175,8 +189,22 @@ public class Inicio_sesion extends javax.swing.JFrame {
 //                d.registrarUsuarioAdmin(u);
 //                a.setVisible(true);
 //            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Inicio_sesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch(ClassNotFoundException ex)
+        {
+             Logger.getLogger(Inicio_sesion.class.getName()).log(Level.SEVERE, null, ex);
+           
+        }
+                
+        catch(SQLException e)
+        {
+            Logger.getLogger(Inicio_sesion.class.getName()).log(Level.SEVERE, null, e);
+             
+            String mensaje = "Base de datos no disponible por favor intente mas tarde";
+            String titulo = "Advertencia!";
+            int tipoMensaje = JOptionPane.ERROR_MESSAGE;
+            JOptionPane.showMessageDialog(this, mensaje, titulo, tipoMensaje);
+        
         }
 
 

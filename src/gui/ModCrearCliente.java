@@ -1,7 +1,7 @@
 
 package gui;
 
-import com.sun.security.ntlm.Client;
+//import com.sun.security.ntlm.Client;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
