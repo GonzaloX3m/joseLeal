@@ -153,12 +153,12 @@ public class Inicio_sesion extends javax.swing.JFrame {
                     System.out.println(usuarioSesion.toString());
                     switch (usuarioSesion.getTipoUsuario()) {
                         case 1:
-                            a = new FormAdmin();
+                            a = new FormAdmin(usuarioSesion);
                             a.setVisible(true);
                             a.lblNombre.setText(usuarioSesion.getNombre());
                             break;
                         case 2:
-                            v = new FormVendedor();
+                            v = new FormVendedor(usuarioSesion);
                             v.setVisible(true);
                             v.lblNombre.setText(usuarioSesion.getNombre());
                             break;

@@ -3,12 +3,15 @@ package gui;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Usuario;
 
 
 public class ModEstadisticas extends javax.swing.JFrame {
 
+    Usuario usuario;
     
-    public ModEstadisticas() {
+    public ModEstadisticas(Usuario u) {
+        this.usuario=u;
         initComponents();
         setLocationRelativeTo(null);
         
@@ -110,7 +113,7 @@ public class ModEstadisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FormAdmin fo = new FormAdmin();
+        FormAdmin fo = new FormAdmin(this.usuario);
         fo.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 
@@ -154,7 +157,7 @@ public class ModEstadisticas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModEstadisticas().setVisible(true);
+                new ModEstadisticas(null).setVisible(true);
             }
         });
     }

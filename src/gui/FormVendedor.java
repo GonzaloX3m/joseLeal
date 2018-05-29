@@ -10,10 +10,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.JButton;
+import model.Usuario;
 
 public class FormVendedor extends javax.swing.JFrame {
 
-    public FormVendedor() {
+    Usuario usuario;
+    public FormVendedor(Usuario u) {
+        this.usuario=u;
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -152,12 +155,12 @@ public class FormVendedor extends javax.swing.JFrame {
 
 
     private void btnCrearClienteNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearClienteNuevoActionPerformed
-        ModCrearCliente mo = new ModCrearCliente();
+        ModCrearCliente mo = new ModCrearCliente(this.usuario);
         mo.setVisible(true);
     }//GEN-LAST:event_btnCrearClienteNuevoActionPerformed
 
     private void btnVenderViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderViviendaActionPerformed
-        ModVenderVivienda mo = new ModVenderVivienda();
+        ModVenderVivienda mo = new ModVenderVivienda(this.usuario);
         mo.setVisible(true);
         
     }//GEN-LAST:event_btnVenderViviendaActionPerformed
@@ -192,7 +195,7 @@ public class FormVendedor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormVendedor().setVisible(true);
+                new FormVendedor(null).setVisible(true);
             }
         });
     }

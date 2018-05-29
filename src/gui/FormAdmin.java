@@ -8,7 +8,9 @@ import model.Usuario;
 
 public class FormAdmin extends javax.swing.JFrame {
 
-    public FormAdmin() {
+    Usuario usuario;
+    public FormAdmin(Usuario u) {
+        this.usuario=u;
         initComponents();
         setLocationRelativeTo(null);
         
@@ -139,12 +141,12 @@ public class FormAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModuloViviendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloViviendaActionPerformed
-        ModViviendas m = new ModViviendas();
+        ModViviendas m = new ModViviendas(this.usuario);
         m.setVisible(true);
     }//GEN-LAST:event_btnModuloViviendaActionPerformed
 
     private void btnModuloCreacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloCreacionActionPerformed
-        ModCreacion m = new ModCreacion();
+        ModCreacion m = new ModCreacion(this.usuario);
 
         m.setVisible(true);
 
@@ -153,7 +155,7 @@ public class FormAdmin extends javax.swing.JFrame {
 
     private void btnModuloRestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloRestActionPerformed
         try {
-            ModRestauracion m = new ModRestauracion();
+            ModRestauracion m = new ModRestauracion(this.usuario);
             m.setVisible(true);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(FormAdmin.class.getName()).log(Level.SEVERE, null, ex);
@@ -164,13 +166,13 @@ public class FormAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnModuloRestActionPerformed
 
     private void btnModuloEstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloEstActionPerformed
-        ModEstadisticas mo = new ModEstadisticas();
+        ModEstadisticas mo = new ModEstadisticas(this.usuario);
         mo.setVisible(true);
         
     }//GEN-LAST:event_btnModuloEstActionPerformed
 
     private void btnModuloLogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModuloLogActionPerformed
-        Log lo = new Log();
+        Log lo = new Log(this.usuario);
         lo.setVisible(true);
     }//GEN-LAST:event_btnModuloLogActionPerformed
 
@@ -202,7 +204,7 @@ public class FormAdmin extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormAdmin().setVisible(true);
+                new FormAdmin(null).setVisible(true);
             }
         });
     }

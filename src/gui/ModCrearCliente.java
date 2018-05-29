@@ -8,13 +8,16 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Cliente;
 import model.Data;
+import model.Usuario;
 
 
 public class ModCrearCliente extends javax.swing.JFrame {
 
     Data d;
-    public ModCrearCliente() {
+    Usuario usuario;
+    public ModCrearCliente(Usuario u) {
         try {
+            this.usuario=u;
             initComponents();
             d = new Data();
             setLocationRelativeTo(null);
@@ -151,7 +154,7 @@ public class ModCrearCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarClienteActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FormVendedor fo = new FormVendedor();
+        FormVendedor fo = new FormVendedor(this.usuario);
         fo.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -186,7 +189,7 @@ public class ModCrearCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModCrearCliente().setVisible(true);
+                new ModCrearCliente(null).setVisible(true);
             }
         });
     }

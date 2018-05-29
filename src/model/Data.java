@@ -71,6 +71,36 @@ public class Data {
         con.ejecutar(query);
     }
 
+    public List<Vivienda> buscarVivienda(int orden, int idTipoVivienda, int estadoVivienda) throws SQLException {
+        
+        if(orden==1)
+        query = "SELECT * FROM vivienda where nueva="+estadoVivienda+" and fk_tipoVivienda="+idTipoVivienda+" order by precio ASC";
+        else
+        query = "SELECT * FROM vivienda where nueva="+estadoVivienda+" and fk_tipoVivienda="+idTipoVivienda+" order by precio DESC";    
+
+        viviendas = new ArrayList<>();
+
+        Vivienda v;
+
+        rs = con.ejecutarSelect(query);
+        while (rs.next()) {
+            v = new Vivienda();
+
+            v.setNum_rol(rs.getString(1));
+            v.setDireccion(rs.getString(2));
+            v.setCant_piezas(rs.getInt(3));
+            v.setCant_banos(rs.getInt(4));
+            v.setPrecio(rs.getInt(5));
+            v.setTipoVivienda(rs.getInt(6));
+            v.setNueva(rs.getInt(7));
+
+            viviendas.add(v);
+        }
+
+        con.close();
+        return viviendas;
+    }
+    
     public List<Vivienda> cargarlistaVivienda() throws SQLException {
         query = "SELECT * FROM vivienda";
 
@@ -134,7 +164,28 @@ public class Data {
         return aux_rs;
     }
 
-    public void registrarVentas() throws SQLException {
+     public List<Cliente> getClientes() throws SQLException {
+        String sql = "SELECT run,nombre,sueldo FROM cliente";
+        Cliente c;
+        
+        ResultSet rs=con.ejecutarSelect(sql);
+        List<Cliente> clientes = new ArrayList<>();
+     
+        while(rs.next()){
+            c = new Cliente();
+            c.setRun(rs.getString(1));
+            c.setNombre(rs.getString(2));
+            c.setSueldo(rs.getInt(3));
+            clientes.add(c);
+        }
+        con.close();
+        
+        return clientes;
+        
+        
+    }
+     
+    public void registrarVenta(Venta v) throws SQLException {
         query = "";
 
         con.ejecutar(query);

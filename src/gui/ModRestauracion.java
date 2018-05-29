@@ -6,6 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Data;
+import model.Usuario;
 import net.proteanit.sql.DbUtils;
 
 public class ModRestauracion extends javax.swing.JFrame {
@@ -13,9 +14,10 @@ public class ModRestauracion extends javax.swing.JFrame {
     private Data d;
     private ResultSet rs_Restauracion;
     private String fechaRest;
-
-    public ModRestauracion() throws ClassNotFoundException, SQLException {
+    Usuario usuario;
+    public ModRestauracion(Usuario u) throws ClassNotFoundException, SQLException {
         initComponents();
+        this.usuario=u;
         d = new Data();
         setLocationRelativeTo(null);
         cargarTablaRest();
@@ -131,7 +133,7 @@ public class ModRestauracion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FormAdmin fo = new FormAdmin();
+        FormAdmin fo = new FormAdmin(this.usuario);
         fo.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -200,7 +202,7 @@ public class ModRestauracion extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new ModRestauracion().setVisible(true);
+                    new ModRestauracion(null).setVisible(true);
                 } catch (ClassNotFoundException ex) {
                     Logger.getLogger(ModRestauracion.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SQLException ex) {

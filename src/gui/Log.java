@@ -1,12 +1,16 @@
 
 package gui;
 
+import model.Usuario;
+
 public class Log extends javax.swing.JFrame {
 
     /**
      * Creates new form Log
      */
-    public Log() {
+    Usuario usuario;
+    public Log(Usuario u) {
+        this.usuario=u;
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Movimientos vendedores ");
@@ -54,7 +58,7 @@ public class Log extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FormAdmin fo = new FormAdmin();
+        FormAdmin fo = new FormAdmin(this.usuario);
         fo.setVisible(true);
         
                 
@@ -90,7 +94,7 @@ public class Log extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Log().setVisible(true);
+                new Log(null).setVisible(true);
             }
         });
     }

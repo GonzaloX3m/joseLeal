@@ -6,15 +6,17 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.Data;
 import model.TipoVivienda;
+import model.Usuario;
 import model.Vivienda;
 
 public class ModViviendas extends javax.swing.JFrame {
 
     Data d;
     private int nueva;
-
-    public ModViviendas() {
+    Usuario usuario;
+    public ModViviendas(Usuario u) {
         try {
+            this.usuario=u;
             initComponents();
             init();
 
@@ -253,7 +255,7 @@ public class ModViviendas extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCasaActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FormAdmin fo = new FormAdmin();
+        FormAdmin fo = new FormAdmin(this.usuario);
         fo.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 
@@ -264,7 +266,7 @@ public class ModViviendas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModViviendas().setVisible(true);
+                new ModViviendas(null).setVisible(true);
             }
         });
     }

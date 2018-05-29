@@ -4,14 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/ModCrearCliente.java</file>
-            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/Inicio_sesion.java</file>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/Usuario.java</file>
-            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/FormAdmin.java</file>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/Cliente.java</file>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/Conexion.java</file>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/TMventas.java</file>
-            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/ModViviendas.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/ModEstadisticasVentas.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/ModEstadisticas.java</file>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/Vivienda.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/ModVenderVivienda.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/Inicio_sesion.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/FormAdmin.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/Venta.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/ModEstadisticasTotales.java</file>
+            <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/gui/ModViviendas.java</file>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/Data.java</file>
             <file>file:/C:/Users/lealx/Documents/ProyectoGonzalo/joseLeal/src/model/TipoVivienda.java</file>
         </group>

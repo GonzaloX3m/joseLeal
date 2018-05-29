@@ -12,9 +12,10 @@ import model.Usuario;
 public class ModCreacion extends javax.swing.JFrame {
 
     Data d;
-
-    public ModCreacion() {
+    Usuario usuario;
+    public ModCreacion(Usuario u) {
         try {
+            this.usuario=u;
             initComponents();
             setLocationRelativeTo(null);
             d = new Data();
@@ -144,7 +145,7 @@ public class ModCreacion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        FormAdmin fo = new FormAdmin();
+        FormAdmin fo = new FormAdmin(this.usuario);
         fo.setVisible(true);
         setVisible(false);
         
@@ -180,7 +181,7 @@ public class ModCreacion extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModCreacion().setVisible(true);
+                new ModCreacion(null).setVisible(true);
             }
         });
     }
