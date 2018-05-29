@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="GrupoEstado">
+    </Component>
+    <Component class="javax.swing.ButtonGroup" name="GrupoOrdenPrecio">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -192,11 +198,17 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbdUsada">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoEstado"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Usada"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="rbdNueva">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoEstado"/>
+            </Property>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Nueva"/>
           </Properties>
@@ -236,20 +248,23 @@
                   <JTableSelectionModel selectionMode="0"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblViviendasVentaMouseClicked"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JRadioButton" name="precAsc">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoOrdenPrecio"/>
+            </Property>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="ASC"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="precDesc">
           <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoOrdenPrecio"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="DESC"/>
           </Properties>
         </Component>
