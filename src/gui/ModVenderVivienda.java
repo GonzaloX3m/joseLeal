@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import model.Cliente;
 import model.Data;
 import model.TMViviendas;
@@ -32,6 +33,8 @@ public class ModVenderVivienda extends javax.swing.JFrame {
             d = new Data();
             cargarComboBox();
             cargarClientes();
+            tblViviendasVenta.setModel(new DefaultTableModel());
+            tblViviendasVenta.updateUI();
             
             tblViviendasVenta.setVisible(false);
         } catch (ClassNotFoundException ex) {
@@ -275,11 +278,20 @@ public class ModVenderVivienda extends javax.swing.JFrame {
             
             TipoVivienda tipoV = (TipoVivienda) cboTipoVivienda.getSelectedItem();
             viviendas = d.buscarVivienda(orden,tipoV.getId(),estadoVivienda);
-                
-            TMViviendas tm = new TMViviendas(viviendas);
-            tblViviendasVenta.setModel(tm);
-            tblViviendasVenta.setVisible(true);
-            tblViviendasVenta.updateUI();
+              if(viviendas.isEmpty())
+              {
+                  String titulo = "Informacion";
+                  int tipoMensaje = JOptionPane.INFORMATION_MESSAGE;
+                  JOptionPane.showMessageDialog(this, "No se han encontrado viviendas para su criterio de busqueda", titulo, tipoMensaje);
+              }
+              else
+              {
+                    TMViviendas tm = new TMViviendas(viviendas);
+                    tblViviendasVenta.setModel(tm);
+                    tblViviendasVenta.setVisible(true);
+                    tblViviendasVenta.updateUI();
+              }
+            
                 
            
            
@@ -322,7 +334,23 @@ public class ModVenderVivienda extends javax.swing.JFrame {
                         Venta venta=new Venta();
                         venta.setCliente(c);
                         venta.setUsuario(u);
+                        venta.setVivienda(v);
                         venta.setFecha(now.format(DateTimeFormatter.ISO_LOCAL_TIME));
+                       
+                        try {
+                                d.registrarVenta(venta);
+                                 String titulo = "Informacion";
+                                 int tipoMensaje = JOptionPane.INFORMATION_MESSAGE;
+                                 JOptionPane.showMessageDialog(this, "Venta registrada con exito", titulo, tipoMensaje);
+                                 tblViviendasVenta.setModel(new DefaultTableModel());
+                                 tblViviendasVenta.updateUI();
+                            }
+                            catch (SQLException e) 
+                            {
+                                 Logger.getLogger(ModCreacion.class.getName()).log(Level.SEVERE, null, e);
+                                 
+                            }
+                                
                 }
                 else
                 {

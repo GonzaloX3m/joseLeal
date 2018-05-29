@@ -35,12 +35,13 @@ public class Data {
     public Usuario getUsuarioSesion(String run) throws SQLException {
         Usuario u = new Usuario();
 
-        String sql = "SELECT run,nombre,fk_tipoUsu FROM usuario WHERE run = '" + run + "'";
+        String sql = "SELECT run,nombre,fk_tipoUsu,id FROM usuario WHERE run = '" + run + "'";
 
         if (con.ejecutarSelect(sql).next()) {
             u.setRun(con.rs.getString(1));
             u.setNombre(con.rs.getString(2));
             u.setTipoUsuario(con.rs.getInt(3));
+            u.setId(con.rs.getInt(4));
         }
         return u;
     }
@@ -74,9 +75,9 @@ public class Data {
     public List<Vivienda> buscarVivienda(int orden, int idTipoVivienda, int estadoVivienda) throws SQLException {
         
         if(orden==1)
-        query = "SELECT * FROM vivienda where nueva="+estadoVivienda+" and fk_tipoVivienda="+idTipoVivienda+" order by precio ASC";
+        query = "SELECT * FROM vivienda where nueva="+estadoVivienda+" and fk_tipoVivienda="+idTipoVivienda+" and num_rol not in (select distinct fk_vivienda from venta) order by precio ASC";
         else
-        query = "SELECT * FROM vivienda where nueva="+estadoVivienda+" and fk_tipoVivienda="+idTipoVivienda+" order by precio DESC";    
+        query = "SELECT * FROM vivienda where nueva="+estadoVivienda+" and fk_tipoVivienda="+idTipoVivienda+" and num_rol not in (select distinct fk_vivienda from venta) order by precio DESC";    
 
         viviendas = new ArrayList<>();
 
@@ -186,8 +187,7 @@ public class Data {
     }
      
     public void registrarVenta(Venta v) throws SQLException {
-        query = "";
-
+        query = "INSERT INTO venta VALUES(null,"+v.getVivienda().getNum_rol()+","+v.getCliente().getRun()+","+v.getUsuario().getId()+",NOW())";
         con.ejecutar(query);
 
     }

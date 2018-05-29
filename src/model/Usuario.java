@@ -2,6 +2,16 @@ package model;
 
 public class Usuario {
 
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     private String run;
     private String nombre;
     private int tipoUsuario;
