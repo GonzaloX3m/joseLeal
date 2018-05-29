@@ -145,10 +145,13 @@ public class Data {
         List<TipoVivienda> tiposVivienda = new ArrayList<>();
         TipoVivienda tv;
         String sql = "SELECT * FROM tipoVivienda;";
-        while(con.ejecutarSelect(sql).next()){
+        
+        ResultSet rs=con.ejecutarSelect(sql);
+        
+        while(rs.next()){
             tv = new TipoVivienda();
-            tv.setId(con.rs.getInt(1));
-            tv.setTipo(con.rs.getString(2));
+            tv.setId(rs.getInt(1));
+            tv.setTipo(rs.getString(2));
             tiposVivienda.add(tv);
         }
         con.close();

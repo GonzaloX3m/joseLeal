@@ -196,22 +196,57 @@ public class ModViviendas extends javax.swing.JFrame {
             Vivienda v = new Vivienda();
             TipoVivienda tipoV;
             
-            v.setNum_rol(txtNumRol.getText());
-            v.setDireccion(txtDireccion.getText());
-            v.setCant_piezas(Integer.parseInt(txtCantPiezas.getText()));
-            v.setCant_banos(Integer.parseInt(txtCantBanos.getText()));
-            tipoV = (TipoVivienda) cboTipoVivienda.getSelectedItem();
-            v.setPrecio(Integer.parseInt(txtPrecio.getText()));
+            String NumRol=txtNumRol.getText().trim();
+            String Dir=txtDireccion.getText().trim();
+            String CantPiezas=txtCantPiezas.getText().trim();
+            String CantBaños=txtCantBanos.getText().trim();
+            String Precio =txtPrecio.getText().trim();
+            String mensaje="";
+            if(NumRol.length()<=0)
+                mensaje="El campo num rol es obligatorio";
+            
+            if(Dir.length()<=0)
+                mensaje+="\t\n"+"La direccion es obligatoria";
+            
+            if(CantPiezas.length()<=0 || (!CantPiezas.matches("^[-+]?\\d+(\\d+)?$")))
+                mensaje+="\t\n"+"La cantidad de piezas debe ser numerica";
+            
+            if(CantBaños.length()<=0 || (!CantBaños.matches("^[-+]?\\d+(\\d+)?$")))
+                mensaje+="\t\n"+"La cantidad de baños debe ser numerica";
+            
+            if(Precio.length()<=0 || (!Precio.matches("^[-+]?\\d+(\\.\\d+)?$")))
+                mensaje+="\t\n"+"El precio debe ser flotante";
+            
+            if(mensaje.length()==0)
+            {
+            
+                v.setNum_rol(txtNumRol.getText());
+                v.setDireccion(txtDireccion.getText());
+                v.setCant_piezas(Integer.parseInt(txtCantPiezas.getText()));
+                v.setCant_banos(Integer.parseInt(txtCantBanos.getText()));
+                tipoV = (TipoVivienda) cboTipoVivienda.getSelectedItem();
+                v.setPrecio(Float.parseFloat(txtPrecio.getText()));
 
-            if (rbdNueva.isSelected()) {
-                v.setNueva(1);
-            } else {
-                v.setNueva(0);
+                if (rbdNueva.isSelected()) {
+                    v.setNueva(1);
+                } else {
+                    v.setNueva(0);
+                }
+
+                d.registrarVivienda(v,tipoV);
+                JOptionPane.showMessageDialog(this, "Casa Creada!");
+                limpiarForm();
+            
             }
-
-            d.registrarVivienda(v,tipoV);
-            JOptionPane.showMessageDialog(this, "Casa Creada!");
-            limpiarForm();
+            else
+            {
+                String titulo = "Advertencia!";
+                int tipoMensaje = JOptionPane.WARNING_MESSAGE;
+                JOptionPane.showMessageDialog(this, mensaje, titulo, tipoMensaje);
+            
+            }
+        
+            
         } catch (SQLException ex) {
             Logger.getLogger(ModViviendas.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -276,6 +311,7 @@ public class ModViviendas extends javax.swing.JFrame {
         txtCantPiezas.setText("");
         txtPrecio.setText("");
         cboTipoVivienda.setSelectedIndex(0);
+        txtDireccion.setText("");
         txtNumRol.requestFocus();
     }
 

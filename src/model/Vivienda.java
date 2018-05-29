@@ -8,10 +8,10 @@ public class Vivienda {
     private int cant_piezas;
     private int cant_banos;
     private int tipoVivienda;
-    private int precio;
+    private float precio;
     private int nueva;
 
-    public Vivienda(String num_rol, String direccion, int cant_piezas, int cant_banos, int tipoVivienda, int precio, int nueva) {
+    public Vivienda(String num_rol, String direccion, int cant_piezas, int cant_banos, int tipoVivienda, float precio, int nueva) {
         this.num_rol = num_rol;
         this.direccion = direccion;
         this.cant_piezas = cant_piezas;
@@ -58,11 +58,11 @@ public class Vivienda {
         this.cant_banos = cant_banos;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 
