@@ -21,11 +21,11 @@ import model.Venta;
 import model.Vivienda;
 
 
-public class ModVenderVivienda extends javax.swing.JFrame {
+public class ModArrendarVivienda extends javax.swing.JFrame {
     Data d;
     Usuario usuario;
     
-    public ModVenderVivienda(Usuario u) {
+    public ModArrendarVivienda(Usuario u) {
         try {
             this.usuario=u;
             initComponents();
@@ -38,9 +38,9 @@ public class ModVenderVivienda extends javax.swing.JFrame {
             
             tblViviendasVenta.setVisible(false);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ModVenderVivienda.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModArrendarVivienda.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(ModVenderVivienda.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModArrendarVivienda.class.getName()).log(Level.SEVERE, null, ex);
         }
                 
         
@@ -74,7 +74,7 @@ public class ModVenderVivienda extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Vender Vivienda"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Arrendar Vivienda"));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/iconoVivienda.png"))); // NOI18N
@@ -96,7 +96,6 @@ public class ModVenderVivienda extends javax.swing.JFrame {
         rbdUsada.setText("Usada");
 
         GrupoEstado.add(rbdNueva);
-        rbdNueva.setSelected(true);
         rbdNueva.setText("Nueva");
 
         jLabel6.setText("Precio:");
@@ -139,7 +138,8 @@ public class ModVenderVivienda extends javax.swing.JFrame {
 
         jLabel2.setText("Seleccion un cliente");
 
-        btnVender.setText("Vender");
+        btnVender.setActionCommand("Arrendar");
+        btnVender.setLabel("Arrendar");
         btnVender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVenderActionPerformed(evt);
@@ -147,7 +147,13 @@ public class ModVenderVivienda extends javax.swing.JFrame {
         });
 
         GrupoEstado.add(rbAmbas);
+        rbAmbas.setSelected(true);
         rbAmbas.setText("Ambas");
+        rbAmbas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbAmbasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -229,6 +235,8 @@ public class ModVenderVivienda extends javax.swing.JFrame {
                 .addComponent(btnVolver)
                 .addGap(106, 106, 106))
         );
+
+        btnVender.getAccessibleContext().setAccessibleName("Arrendar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -350,10 +358,10 @@ public class ModVenderVivienda extends javax.swing.JFrame {
                         venta.setFecha(now.format(DateTimeFormatter.ISO_LOCAL_TIME));
                        
                         try {
-                                d.registrarVenta(venta);
+                                d.registrarArriendo(venta);
                                  String titulo = "Informacion";
                                  int tipoMensaje = JOptionPane.INFORMATION_MESSAGE;
-                                 JOptionPane.showMessageDialog(this, "Venta registrada con exito", titulo, tipoMensaje);
+                                 JOptionPane.showMessageDialog(this, "Arriendo registrado con exito", titulo, tipoMensaje);
                                  tblViviendasVenta.setModel(new DefaultTableModel());
                                  tblViviendasVenta.updateUI();
                             }
@@ -368,7 +376,7 @@ public class ModVenderVivienda extends javax.swing.JFrame {
                 {
                         String titulo = "Advertencia!";
                         int tipoMensaje = JOptionPane.WARNING_MESSAGE;
-                        JOptionPane.showMessageDialog(this, "Debe seleccionar el cliente al que le desea vender", titulo, tipoMensaje);
+                        JOptionPane.showMessageDialog(this, "Debe seleccionar el cliente al que le desea arrendar", titulo, tipoMensaje);
                 }
                
             }
@@ -376,7 +384,7 @@ public class ModVenderVivienda extends javax.swing.JFrame {
             {
                 String titulo = "Advertencia!";
                 int tipoMensaje = JOptionPane.WARNING_MESSAGE;
-                JOptionPane.showMessageDialog(this, "Debe seleccionar la vivienda que desea vender", titulo, tipoMensaje);
+                JOptionPane.showMessageDialog(this, "Debe seleccionar la vivienda que desea arrendar", titulo, tipoMensaje);
 
             }
             
@@ -387,13 +395,17 @@ public class ModVenderVivienda extends javax.swing.JFrame {
         {
                 String titulo = "Advertencia!";
                 int tipoMensaje = JOptionPane.WARNING_MESSAGE;
-                JOptionPane.showMessageDialog(this, "Debe buscar la vivienda que desea vender", titulo, tipoMensaje);
+                JOptionPane.showMessageDialog(this, "Debe buscar la vivienda que desea arrendar", titulo, tipoMensaje);
 
         
         }
         
         
     }//GEN-LAST:event_btnVenderActionPerformed
+
+    private void rbAmbasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbAmbasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbAmbasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -412,20 +424,21 @@ public class ModVenderVivienda extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ModVenderVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModArrendarVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ModVenderVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModArrendarVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ModVenderVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModArrendarVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ModVenderVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModArrendarVivienda.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ModVenderVivienda(null).setVisible(true);
+                new ModArrendarVivienda(null).setVisible(true);
             }
         });
     }

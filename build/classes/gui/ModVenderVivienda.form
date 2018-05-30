@@ -97,6 +97,8 @@
                                           <Component id="rbdUsada" min="-2" pref="66" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="rbAmbas" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="btnVender" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
@@ -127,6 +129,7 @@
                       <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="rbdNueva" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="rbdUsada" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="rbAmbas" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -298,6 +301,14 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVenderActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="rbAmbas">
+          <Properties>
+            <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+              <ComponentRef name="GrupoEstado"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ambas"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

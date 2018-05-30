@@ -50,7 +50,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="Vender Vivienda"/>
+            <TitledBorder title="Arrendar Vivienda"/>
           </Border>
         </Property>
       </Properties>
@@ -212,7 +212,6 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="GrupoEstado"/>
             </Property>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Nueva"/>
           </Properties>
         </Component>
@@ -296,8 +295,12 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnVender">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Vender"/>
+            <Property name="actionCommand" type="java.lang.String" value="Arrendar"/>
+            <Property name="label" type="java.lang.String" value="Arrendar"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Arrendar"/>
+          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVenderActionPerformed"/>
           </Events>
@@ -307,8 +310,12 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="GrupoEstado"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Ambas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rbAmbasActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

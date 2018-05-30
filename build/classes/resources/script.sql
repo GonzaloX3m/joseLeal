@@ -97,4 +97,7 @@ BEGIN
 	DELETE FROM restauracion WHERE fecha BETWEEN fechaRest AND NOW();
 	-- DELETE FROM  WHERE fecha BETWEEN fechaRestcv AND NOW();
 	
+ALTER TABLE venta 
+ADD COLUMN arrendada TINYINT NOT NULL DEFAULT 0 AFTER fecha;
+	
 END

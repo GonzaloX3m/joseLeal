@@ -62,6 +62,11 @@ public class FormVendedor extends javax.swing.JFrame {
 
         btnArrendar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/renta.png"))); // NOI18N
         btnArrendar.setText("Arrendar Vivienda");
+        btnArrendar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnArrendarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,6 +169,13 @@ public class FormVendedor extends javax.swing.JFrame {
         mo.setVisible(true);
         
     }//GEN-LAST:event_btnVenderViviendaActionPerformed
+
+    private void btnArrendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnArrendarActionPerformed
+        // TODO add your h
+        ModArrendarVivienda mo = new ModArrendarVivienda(this.usuario);
+        mo.setVisible(true);
+        
+    }//GEN-LAST:event_btnArrendarActionPerformed
 
     
 
